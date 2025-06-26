@@ -4,23 +4,22 @@ import threading
 import tkinter as tk
 from tkinter import messagebox
 
-# Configuration
+
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 PORT = 5000
-PEER_IP = "10.0.0.3"  # Change as needed
+PEER_IP = "10.0.0.3"  
 
-# Setup UDP Socket
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(("", PORT))  # Listen for incoming audio
+sock.bind(("", PORT))  
 
-# Initialize PyAudio
 audio = pyaudio.PyAudio()
 output_stream = None
 input_stream = None
-running = False  # Global flag to control threads
+running = False 
 
 def start_voip():
     global output_stream, input_stream, running
@@ -55,7 +54,7 @@ def send_audio():
         except Exception as e:
             print("Send Error:", e)
 
-# GUI Setup
+
 root = tk.Tk()
 root.title("VoIP App")
 root.geometry("300x200")
